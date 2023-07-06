@@ -109,15 +109,27 @@ const img = document.querySelector('.pt2-img');
 // const text = document.querySelector('.slider');
 // const aboutText = document.querySelector('.pt2-text');
 
+// navToggle.addEventListener('click', () => {
+//   const visibility = navList.getAttribute('data-visible');
+  
+//   img.style.zIndex = visibility === "true" ? -1 : 1;
+//   // text.style.zIndex = visibility === "true" ? -1 : 1;
+//   // aboutText.style.zIndex = visibility === "true" ? -1 : 1;
+  
+//   navList.setAttribute('data-visible', !visibility);
+//   navToggle.setAttribute('aria-expanded', !visibility);
+// });
+
 navToggle.addEventListener('click', () => {
   const visibility = navList.getAttribute('data-visible');
-  
-  img.style.zIndex = visibility === "true" ? -1 : 1;
-  // text.style.zIndex = visibility === "true" ? -1 : 1;
-  // aboutText.style.zIndex = visibility === "true" ? -1 : 1;
-  
-  navList.setAttribute('data-visible', !visibility);
-  navToggle.setAttribute('aria-expanded', !visibility);
+
+  if (visibility === 'false') {
+    navList.setAttribute('data-visible', 'true');
+    navToggle.setAttribute('aria-expanded', 'true');
+  } else if (visibility === 'true') {
+    navList.setAttribute('data-visible', 'false');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
 });
 
 const slides = document.querySelectorAll('.slide');
